@@ -1,0 +1,3 @@
+# Panorama general del libro
+
+Este `LibRillo de R y Biologia` pretende avanzar a quien lo consulte en temas especificos que relacionan diferentes ambitos y aspectos biologicos con `R`. Sin embargo, el libro no se enfoca solamente en revisar la aplicacion de conceptus usando tecnicas. 

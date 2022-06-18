@@ -1,9 +1,12 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAME HERE"
+title: "LibRillo de R y Biologia"
+author: "Cristian Román Palacios"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# Down the rabbit-hole
+# Prólogo
+
+Este libro es una compilacion de consulta rapida sobre diferentes aspectos que combinan el uso de `R` con algunos temas de biologia. El `LibRillo de R y Biologia` pretende servir de referencia sobre temas especificos, enfocando capitulos sobre objetivos particulares y desarrollando brevemente el contenido principalmente alrededor de un parquete en `R`. Este librillo cubre temas que engloban desde lo mas fundamental en `R` asi como aplicaciones que combinan `R`, `git`, `GitHub`, entre otros.
+
 
