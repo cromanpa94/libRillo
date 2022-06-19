@@ -1,0 +1,524 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={LibRillo de R y Biologia},
+  pdfauthor={Cristian Román Palacios},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+
+\title{LibRillo de R y Biologia}
+\author{Cristian Román Palacios}
+\date{2022-06-19}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{pruxf3logo}{%
+\chapter*{Prólogo}\label{pruxf3logo}}
+
+
+Este libro es una compilacion para consulta rapida sobre diferentes aspectos que combinan el uso de \texttt{R} con diferentes temas de biologia. El \texttt{LibRillo\ de\ R\ y\ Biologia} pretende servir de referencia sobre temas particulares, enfocando capitulos sobre objetivos especificos y desarrollando brevemente el contenido principalmente alrededor de un parquete en \texttt{R}. Este librillo cubre temas que engloban desde lo mas fundamental en \texttt{R} asi como aplicaciones que combinan \texttt{R}, \texttt{git}, \texttt{GitHub}, entre otros.
+
+\hypertarget{estructura-del-libro}{%
+\section*{Estructura del libro}\label{estructura-del-libro}}
+
+
+Este \texttt{LibRillo\ de\ R\ y\ Biologia} pretende avanzar a quien lo consulte en temas especificos que relacionan diferentes ambitos y aspectos biologicos con \texttt{R}. Sin embargo, el libro no se enfoca solamente en revisar la aplicacion de conceptus usando tecnicas. En el capitulo 1 XXX\ldots{}
+
+\hypertarget{convenciones-generales-del-libro}{%
+\section*{Convenciones generales del libro}\label{convenciones-generales-del-libro}}
+
+
+Este libro fue generado usando principalmente \texttt{R} \texttt{knitr} y \texttt{bookdown}. En general, los bloques de codigo que se incluyen en el libro permiten una ejecucion sencilla e intuitiva de los temas. En diferentes secciones del libro, se pretende generar salidad graficas y numericas directamente usando codigos en \texttt{R}. Al inicio de cada capitulo incluyo informacion sobre los paquetes que son relevantes para llevar a cabo los diferentes objetivos del mismo.
+
+La informacion contenida en este libro fue compilada usando la siguiente sesion de \texttt{R}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## R version 4.2.0 (2022-04-22)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
+## Running under: macOS Catalina 10.15.7
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] compiler_4.2.0  magrittr_2.0.3  fastmap_1.1.0   bookdown_0.27  
+##  [5] cli_3.3.0       htmltools_0.5.2 tools_4.2.0     rstudioapi_0.13
+##  [9] yaml_2.3.5      stringi_1.7.6   rmarkdown_2.14  knitr_1.39     
+## [13] stringr_1.4.0   digest_0.6.29   xfun_0.31       rlang_1.0.2    
+## [17] evaluate_0.15
+\end{verbatim}
+
+Pretendo no agregar simbolos como \texttt{\textgreater{}} y \texttt{+} en el codigo de \texttt{R} dentro de este libro. En general, los codigos aparecen destacados en cajas grises:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Las salidas de codigo tambien aparecen en un bloque gris. Sin embargo, las lineas de salida incluyen los caracteres \texttt{\#\#} antes del contenido de cada linea. Por ejemplo, multipliquemos el vector \texttt{a} creado anteriormente por \texttt{20}:
+
+\begin{verbatim}
+## [1]  40  80 100
+\end{verbatim}
+
+La salida de esta operacion necesariamente tiene los \texttt{\#\#} en el bloque. Por lo tanto, unicamente el codigo que \textbf{no} tiene \texttt{\#\#} debe ser copiado (en caso de ser necesario). Las salidas de codigo realmente no son ran relevantes para reproducir el codigo.
+
+Por ultimo, el nombre de paquetes se indica en negrilla dentro del texto (e.g.~\textbf{bookdown}), las functiones se presentan seguidas de parentesis (e.g.~\texttt{render\_book()}), los dobles dos puntos (\texttt{::}) significan que un determinado objeto pertenece a un paquete determinado (e.g.~\texttt{bookdown::render\_book()}), y codigos en el texto aparecen en formato de maquina de escribir (e.g.~\texttt{R}).
+
+Estas son las convenciones mas generales del libro. Otras convenciones mas particulares y relevantes a otros temas seran discutidas en los capitulos siguientes.
+
+\hypertarget{dedicacion}{%
+\section*{Dedicacion}\label{dedicacion}}
+
+
+Este libro esta escrito principalmente para estudiantes de universidades publicas o pertenecientes a grupos historicamente excluidos de la academia. Escribo el libro con mucho cariño, pensando en que ayudara a equilibrar la balanza entre quienes tienen acceso directo a recursos ``avanzados'' en ingles y aquellos que por diferentes razones, solamente acceden a informacion en español. El libro es de acceso abierto y no pretendo cobrar por su uso.
+
+\hypertarget{agradecimientos}{%
+\section*{Agradecimientos}\label{agradecimientos}}
+
+
+Mis agradecimientos mas fuertes van para mi padre y madre, Cesar Roman y Yocasta Palacios. Al parecer, de mi padre, Ictiologo y profesor titular en la Universidad del Quindio, termine heredando la profesion. De mi madre, profesora de preescolar en diferentes instituciones del Quindio (Colombia), la pasion y paciencia por enseñar y ayudar. Grandes agradecimientos van tambien a mi hermano, Carlos, ingeniero en sistemas, gran programador y conversador, quien por su cercania me mostro que escribir codigo (al menos al nivel basico que yo hago), no es imposible. Este libro lo empiezo a escribir estado en Tucson, AZ. Gracias a mi pareja, Heidi E. Steiner, quien me apoya con su actitud, tiempo, y cariño, mientras me dedico por raticos a escribir apartados de este libro. A estos cuatro personajes, motor de mi vida, todo mi cariño y admiracion.
+
+\hypertarget{sobre-el-autor}{%
+\chapter*{Sobre el autor}\label{sobre-el-autor}}
+
+
+Cristian Román Palacios es Profesor Asistente en la Universidad de Arizona desde el 2021. Cristian es Biologo de la Universidad del Valle (2015), Magister y Ph.D.~en Ecologia y Evolucion (2019, 2020) de la Universidad de Arizona, con cargos postdoctorales en Temple University (2021) y University of California, Los Angeles (2021). Los interestes investigativos de Cristian contemplan temas de evolucion a grandes escalas taxonomicas, asi como la relacion entre cambio climatico y diversidad. Sin embargo, el aprendizaje de areas relacionadas con programacion resulto ser una prioridad durante su formacion academica. Ahora pretende divulgar de forma sencilla, contenidos de \texttt{R} y biologia usando diferentes recursos, uno de estos son los libros. Actualmente, Cristian enseña cursos de Machine Learning y Data Mining en la Escuela de La Informacion, en la Universidad de Arizona. Mas informacion sobre el autor esta disponible en su \href{https://cromanpa94.github.io/cromanpa/}{pagina web}.
+
+\hypertarget{una-breve-introduccion-a-r}{%
+\chapter{\texorpdfstring{Una breve introduccion a \texttt{R}}{Una breve introduccion a R}}\label{una-breve-introduccion-a-r}}
+
+\texttt{R} será el principal lenguaje que guiara el libro. En diferentes disciplinas biologicas, el uso de \texttt{R} se ha extendido significativamente durante la ultima decada. Sin embargo, \texttt{R}, por ser un lenguaje principalmente enfocado en aspectos estadisticos, tiene ciertas limitaciones en cuanto a velocidad y flexibilidad. Por otro lado, debido a la compartimentalizacion de implementaciones metodologicas en codigo, aprender y usar \texttt{R} es probablemente central en un campo biologico determinado pero no en otros. Otros recursos pueden ser usados para seguir la estructura del presente libro en otros lenguajes (e.g.~\texttt{python}). Por ahora, nos enfocaremos en como instalar y usar \texttt{R}. Por simplicidad, vamos a procurar trabajar desde \texttt{RStudio}.
+
+\hypertarget{r-y-rstudio}{%
+\section{\texorpdfstring{\texttt{R} y \texttt{RStudio}}{R y RStudio}}\label{r-y-rstudio}}
+
+Aunque no son equivalentes, en diferentes contextos, \texttt{R} y \texttt{RStudio} se usan erroneamente de forma intercambiable. \texttt{R} es explicitamente un lenguaje de programacion, desarrollado por decadas como parte del \texttt{R\ Core\ Team} y la \texttt{R\ Foundation\ for\ Statistical\ Computing}. En pocas palabras, \texttt{R} es un lenguaje en si mismo, que esta enfocado en computaciones estadisticas. \texttt{RStudio} requiere de \texttt{R} para functionar. Especificamente, \texttt{RStudio} permite manejar (potentialmente) mas eficientemente y esteticamente el espacio de trabajo en \texttt{R}.
+
+\hypertarget{instalando-r-y-rstudio}{%
+\subsection{\texorpdfstring{Instalando \texttt{R} y \texttt{RStudio}}{Instalando R y RStudio}}\label{instalando-r-y-rstudio}}
+
+Dependiendo del sistema operativo en consideracion, existen multiples maneras de instalar \texttt{R}. En MacOS, vamos a usar \texttt{homebrew} para instalar paquetes y demas software que necesitemos. Para instalar \texttt{homebrew}, pueden correr la siguiente linea en la linea de comandos:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{/bin/bash} \AttributeTok{{-}c} \StringTok{"}\VariableTok{$(}\ExtensionTok{curl} \AttributeTok{{-}fsSL}\NormalTok{ https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh}\VariableTok{)}\StringTok{"} 
+\end{Highlighting}
+\end{Shaded}
+
+Si estan usando linux, intentaremos hacer las instalaciones usando \texttt{apt\ install} para instalar programas desde la linea de comandos. En Windows, los ejecutables estan generalente disponibles para los programas que estaremos usando.
+
+\hypertarget{instalando-r}{%
+\subsubsection{\texorpdfstring{Instalando \texttt{R}}{Instalando R}}\label{instalando-r}}
+
+En linux, la instalacion de \texttt{R} normalente requiere de un par de comandos:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ apt update}
+\FunctionTok{sudo}\NormalTok{ apt install r{-}base}
+\end{Highlighting}
+\end{Shaded}
+
+En MacOs y desde \texttt{homebrew}, la instalacion de \texttt{R} involucra la siguiente linea:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{brew}\NormalTok{ install r}
+\end{Highlighting}
+\end{Shaded}
+
+En Linux y MacOs, la instalacion debe crear una nueva aplicacion. Sin embargo, desde la misma linea de comandos, correr
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{R}
+\end{Highlighting}
+\end{Shaded}
+
+debe permitir ingresar a \texttt{R} directamente. Por ultimo, es potentialmente preferible descagar e instalar \texttt{R} usando el instalador en la pagina oficial de \texttt{R} project usando este \href{https://cran.r-project.org/bin/windows/base/}{link}.
+
+\hypertarget{instalando-rstudio}{%
+\subsubsection{\texorpdfstring{Instalando \texttt{RStudio}}{Instalando RStudio}}\label{instalando-rstudio}}
+
+Instalar \texttt{RStudio} no es totalmente necesario para seguir las instrucciones en todos los capitulos de este librillo. Sin embargo, es ultil para muchas de ellas. Por otro lado, \texttt{RStudio} no es completamente necesario para correr \texttt{R}. Para descargarlo e instalarlo pueden seguir las instrucciones en la \href{https://www.rstudio.com/products/rstudio/}{pagina oficial} de \texttt{RStudio}.
+
+\texttt{RStudio} tambien puede ser instalado desde la linea de comando. En \href{https://docs.rstudio.com/rpm/installation/}{Ubuntu Linux}, instalar \texttt{RStudio} toma las siguientes lineas:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ apt update}
+\FunctionTok{sudo}\NormalTok{ apt install gdebi{-}core}
+\FunctionTok{wget}\NormalTok{ https://cdn.rstudio.com/package{-}manager/ubuntu/amd64/rstudio{-}pm\_2022.04.0{-}7\_amd64.deb}
+\FunctionTok{sudo}\NormalTok{ gdebi rstudio{-}pm\_2022.04.0{-}7\_amd64.deb}
+\end{Highlighting}
+\end{Shaded}
+
+En MacOS, \texttt{homebrew} puede usarse para instalar \texttt{RStudio} muy facilmente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{brew}\NormalTok{ install }\AttributeTok{{-}{-}cask}\NormalTok{ rstudio}
+\end{Highlighting}
+\end{Shaded}
+
+En Windows, la recomendacion es descargar la aplicacion directamente desde la pagina de \texttt{RStudio} en el siguiente \href{https://www.rstudio.com/products/rstudio/}{enlace}.
+
+\hypertarget{primeros-pinitos-en-r}{%
+\section{\texorpdfstring{Primeros pinitos en \texttt{R}}{Primeros pinitos en R}}\label{primeros-pinitos-en-r}}
+
+Ahora que tenemos \texttt{R} instalado vamos a empezar a conocer algunos aspectos basicos del lenguaje!
+
+\hypertarget{exportar-datos}{%
+\subsection{Exportar datos}\label{exportar-datos}}
+
+\hypertarget{r-un-poco-mas-avanzado}{%
+\section{R un poco mas avanzado\ldots{}}\label{r-un-poco-mas-avanzado}}
+
+\hypertarget{for-loops}{%
+\subsection{\texorpdfstring{\texttt{for} loops}{for loops}}\label{for-loops}}
+
+\hypertarget{vectorizando}{%
+\subsection{Vectorizando}\label{vectorizando}}
+
+\hypertarget{functiones-de-la-familia-apply}{%
+\subsection{\texorpdfstring{Functiones de la familia *\texttt{apply}}{Functiones de la familia *apply}}\label{functiones-de-la-familia-apply}}
+
+\hypertarget{data.table}{%
+\subsection{\texorpdfstring{\texttt{data.table}}{data.table}}\label{data.table}}
+
+\hypertarget{el-tidyverso}{%
+\subsection{\texorpdfstring{El \texttt{tidy}verso}{El tidyverso}}\label{el-tidyverso}}
+
+\hypertarget{personalizando-r}{%
+\subsection{Personalizando R}\label{personalizando-r}}
+
+Mensaje de inicio
+
+\hypertarget{paginas-web-con-github-rstudio-y-r}{%
+\chapter{\texorpdfstring{Paginas web con \texttt{GitHub}, \texttt{RStudio}, y \texttt{R}}{Paginas web con GitHub, RStudio, y R}}\label{paginas-web-con-github-rstudio-y-r}}
+
+\hypertarget{jekyll}{%
+\section{Jekyll}\label{jekyll}}
+
+\hypertarget{hugo}{%
+\section{Hugo}\label{hugo}}
+
+\hypertarget{usando-github-rstudio-y-r}{%
+\chapter{\texorpdfstring{Usando \texttt{GitHub}, \texttt{RStudio}, y \texttt{R}}{Usando GitHub, RStudio, y R}}\label{usando-github-rstudio-y-r}}
+
+\hypertarget{git}{%
+\section{\texorpdfstring{\texttt{Git}}{Git}}\label{git}}
+
+\hypertarget{github}{%
+\section{\texorpdfstring{\texttt{GitHub}}{GitHub}}\label{github}}
+
+\hypertarget{rstudio-e-integracion-con-github}{%
+\section{\texorpdfstring{\texttt{RStudio} e integracion con \texttt{GitHub}}{RStudio e integracion con GitHub}}\label{rstudio-e-integracion-con-github}}
+
+\hypertarget{regresiones-lineales}{%
+\chapter{Regresiones lineales}\label{regresiones-lineales}}
+
+\hypertarget{regresiones-mas-avanzadas}{%
+\chapter{Regresiones mas avanzadas}\label{regresiones-mas-avanzadas}}
+
+\hypertarget{regresiones-bayesianas}{%
+\section{Regresiones Bayesianas}\label{regresiones-bayesianas}}
+
+\hypertarget{ecologia-basica}{%
+\chapter{Ecologia basica}\label{ecologia-basica}}
+
+\hypertarget{indices-de-diversidad}{%
+\section{Indices de diversidad}\label{indices-de-diversidad}}
+
+\hypertarget{curvas-de-acumulacion}{%
+\section{Curvas de acumulacion}\label{curvas-de-acumulacion}}
+
+\hypertarget{rarefaccion}{%
+\section{Rarefaccion}\label{rarefaccion}}
+
+\hypertarget{usando-datos-del-gbif}{%
+\section{Usando datos del gbif}\label{usando-datos-del-gbif}}
+
+\hypertarget{modelos-de-distribucion}{%
+\section{Modelos de distribucion}\label{modelos-de-distribucion}}
+
+\hypertarget{filogenetica-basica-en-r}{%
+\chapter{\texorpdfstring{Filogenetica basica en \texttt{R}}{Filogenetica basica en R}}\label{filogenetica-basica-en-r}}
+
+\hypertarget{descargar-secuencias-de-genbank}{%
+\section{\texorpdfstring{Descargar secuencias de \texttt{GenBank}}{Descargar secuencias de GenBank}}\label{descargar-secuencias-de-genbank}}
+
+\hypertarget{usar-secuencias-existentes}{%
+\section{Usar secuencias existentes}\label{usar-secuencias-existentes}}
+
+\hypertarget{alinear-secuencias}{%
+\section{Alinear secuencias}\label{alinear-secuencias}}
+
+\hypertarget{visualizar-alineamientos}{%
+\section{Visualizar alineamientos}\label{visualizar-alineamientos}}
+
+\hypertarget{correr-arboles-filogeneticos}{%
+\section{Correr arboles filogeneticos}\label{correr-arboles-filogeneticos}}
+
+\hypertarget{ips}{%
+\section{IPS}\label{ips}}
+
+\hypertarget{exportar-datos-desde-r}{%
+\section{Exportar datos desde R}\label{exportar-datos-desde-r}}
+
+\hypertarget{macroevolucion-basica-en-r}{%
+\chapter{\texorpdfstring{Macroevolucion basica en \texttt{R}}{Macroevolucion basica en R}}\label{macroevolucion-basica-en-r}}
+
+\hypertarget{regresiones-filogeneticas}{%
+\section{Regresiones filogeneticas}\label{regresiones-filogeneticas}}
+
+\hypertarget{estimaciones-de-seuxf1al-filogenetica}{%
+\section{Estimaciones de señal filogenetica}\label{estimaciones-de-seuxf1al-filogenetica}}
+
+\hypertarget{modelos-sse}{%
+\section{Modelos SSE}\label{modelos-sse}}
+
+\hypertarget{web-scraping-con-r}{%
+\chapter{\texorpdfstring{Web scraping con \texttt{R}}{Web scraping con R}}\label{web-scraping-con-r}}
+
+\hypertarget{machine-learning-con-r}{%
+\chapter{\texorpdfstring{Machine learning con \texttt{R}}{Machine learning con R}}\label{machine-learning-con-r}}
+
+\hypertarget{keras-en-r}{%
+\section{\texorpdfstring{\texttt{Keras} en \texttt{R}}{Keras en R}}\label{keras-en-r}}
+
+\hypertarget{tensorflow-en-r}{%
+\section{\texorpdfstring{\texttt{Tensorflow} en \texttt{R}}{Tensorflow en R}}\label{tensorflow-en-r}}
+
+\hypertarget{spark-r}{%
+\section{\texorpdfstring{\texttt{Spark} \texttt{R}}{Spark R}}\label{spark-r}}
+
+\hypertarget{data-mining-con-r}{%
+\chapter{\texorpdfstring{Data Mining con \texttt{R}}{Data Mining con R}}\label{data-mining-con-r}}
+
+\hypertarget{tests-estadisticos}{%
+\chapter{Tests estadisticos}\label{tests-estadisticos}}
+
+\hypertarget{estadistica-descriptiva-en-r}{%
+\chapter{\texorpdfstring{Estadistica descriptiva en \texttt{R}}{Estadistica descriptiva en R}}\label{estadistica-descriptiva-en-r}}
+
+\hypertarget{libros-paquetes-apps-en-r}{%
+\chapter{\texorpdfstring{Libros, paquetes, apps en \texttt{R}}{Libros, paquetes, apps en R}}\label{libros-paquetes-apps-en-r}}
+
+\hypertarget{libros-en-r}{%
+\section{\texorpdfstring{Libros en \texttt{R}}{Libros en R}}\label{libros-en-r}}
+
+\hypertarget{paquetes-en-r}{%
+\section{\texorpdfstring{Paquetes en \texttt{R}}{Paquetes en R}}\label{paquetes-en-r}}
+
+\hypertarget{shiny-apps-en-r}{%
+\section{\texorpdfstring{\texttt{Shiny} apps en \texttt{R}}{Shiny apps en R}}\label{shiny-apps-en-r}}
+
+\hypertarget{introduccion-a-rmarkdown}{%
+\chapter{\texorpdfstring{Introduccion a \texttt{RMarkdown}}{Introduccion a RMarkdown}}\label{introduccion-a-rmarkdown}}
+
+\hypertarget{autocalificar-tareas-en-r}{%
+\chapter{\texorpdfstring{Autocalificar tareas en \texttt{R}}{Autocalificar tareas en R}}\label{autocalificar-tareas-en-r}}
+
+\hypertarget{sha}{%
+\section{SHA}\label{sha}}
+
+\hypertarget{objetos-invisibles-en-el-espacio-de-trabajo}{%
+\section{Objetos invisibles en el espacio de trabajo}\label{objetos-invisibles-en-el-espacio-de-trabajo}}
+
+\hypertarget{graficos-en-r}{%
+\chapter{\texorpdfstring{Graficos en \texttt{R}}{Graficos en R}}\label{graficos-en-r}}
+
+\hypertarget{graficando-con-r-base}{%
+\section{\texorpdfstring{Graficando con \texttt{R} \texttt{base}}{Graficando con R base}}\label{graficando-con-r-base}}
+
+\hypertarget{graficando-con-ggplot2-en-r}{%
+\section{\texorpdfstring{Graficando con \texttt{ggplot2} en \texttt{R}}{Graficando con ggplot2 en R}}\label{graficando-con-ggplot2-en-r}}
+
+\hypertarget{macroevolucion-basica-en-r-1}{%
+\chapter{\texorpdfstring{Macroevolucion basica en \texttt{R}}{Macroevolucion basica en R}}\label{macroevolucion-basica-en-r-1}}
+
+\hypertarget{regresiones-filogeneticas-1}{%
+\section{Regresiones filogeneticas}\label{regresiones-filogeneticas-1}}
+
+\hypertarget{estimaciones-de-seuxf1al-filogenetica-1}{%
+\section{Estimaciones de señal filogenetica}\label{estimaciones-de-seuxf1al-filogenetica-1}}
+
+\hypertarget{modelos-sse-1}{%
+\section{Modelos SSE}\label{modelos-sse-1}}
+
+\hypertarget{manipulando-datos-en-r}{%
+\chapter{\texorpdfstring{Manipulando datos en \texttt{R}}{Manipulando datos en R}}\label{manipulando-datos-en-r}}
+
+\hypertarget{bases-de-datos-en-r}{%
+\chapter{\texorpdfstring{Bases de datos en \texttt{R}}{Bases de datos en R}}\label{bases-de-datos-en-r}}
+
+\hypertarget{sql}{%
+\section{\texorpdfstring{\texttt{SQL}}{SQL}}\label{sql}}
+
+\hypertarget{organizando-proyectos-reproducibles}{%
+\chapter{Organizando proyectos reproducibles}\label{organizando-proyectos-reproducibles}}
+
+\hypertarget{rstudio-projects}{%
+\section{\texorpdfstring{\texttt{RStudio} projects}{RStudio projects}}\label{rstudio-projects}}
+
+\hypertarget{github-repo}{%
+\section{\texorpdfstring{\texttt{GitHub} repo}{GitHub repo}}\label{github-repo}}
+
+\hypertarget{mejores-practicas-r}{%
+\chapter{Mejores Practicas R}\label{mejores-practicas-r}}
+
+\hypertarget{como-pedir-ayuda-de-forma-eficiente}{%
+\chapter{Como pedir ayuda de forma eficiente?}\label{como-pedir-ayuda-de-forma-eficiente}}
+
+\hypertarget{ejemplos-reproducibles}{%
+\section{Ejemplos reproducibles}\label{ejemplos-reproducibles}}
+
+\hypertarget{fuentes-potenciales}{%
+\section{Fuentes potenciales}\label{fuentes-potenciales}}
+
+\hypertarget{como-hacer-mapas-en-r}{%
+\chapter{\texorpdfstring{Como hacer mapas en \texttt{R}}{Como hacer mapas en R}}\label{como-hacer-mapas-en-r}}
+
+\hypertarget{base-r}{%
+\section{\texorpdfstring{\texttt{Base} \texttt{R}}{Base R}}\label{base-r}}
+
+\hypertarget{ggplot}{%
+\section{\texorpdfstring{\texttt{ggplot}}{ggplot}}\label{ggplot}}
+
+\hypertarget{simulando-datos}{%
+\chapter{Simulando datos}\label{simulando-datos}}
+
+\hypertarget{reportes-reproducibles}{%
+\chapter{Reportes reproducibles}\label{reportes-reproducibles}}
+
+\end{document}

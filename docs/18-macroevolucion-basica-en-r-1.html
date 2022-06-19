@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capitulo 18 Macroevolucion basica en R | LibRillo de R y Biologia</title>
+  <meta name="description" content="Capitulo 18 Macroevolucion basica en R | LibRillo de R y Biologia" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capitulo 18 Macroevolucion basica en R | LibRillo de R y Biologia" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capitulo 18 Macroevolucion basica en R | LibRillo de R y Biologia" />
+  
+  
+  
+
+<meta name="author" content="Cristian Román Palacios" />
+
+
+<meta name="date" content="2022-06-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="17.2-graficando-con-ggplot2-en-r.html"/>
+<link rel="next" href="18.1-regresiones-filogeneticas-1.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">LibRillo Biologico</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prólogo</a>
+<ul>
+<li class="chapter" data-level="" data-path="estructura-del-libro.html"><a href="estructura-del-libro.html"><i class="fa fa-check"></i>Estructura del libro</a></li>
+<li class="chapter" data-level="" data-path="convenciones-generales-del-libro.html"><a href="convenciones-generales-del-libro.html"><i class="fa fa-check"></i>Convenciones generales del libro</a></li>
+<li class="chapter" data-level="" data-path="dedicacion.html"><a href="dedicacion.html"><i class="fa fa-check"></i>Dedicacion</a></li>
+<li class="chapter" data-level="" data-path="agradecimientos.html"><a href="agradecimientos.html"><i class="fa fa-check"></i>Agradecimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sobre-el-autor.html"><a href="sobre-el-autor.html"><i class="fa fa-check"></i>Sobre el autor</a></li>
+<li class="chapter" data-level="1" data-path="1-una-breve-introduccion-a-r.html"><a href="1-una-breve-introduccion-a-r.html"><i class="fa fa-check"></i><b>1</b> Una breve introduccion a <code>R</code></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1.1-r-y-rstudio.html"><a href="1.1-r-y-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> <code>R</code> y <code>RStudio</code></a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="1.1-r-y-rstudio.html"><a href="1.1-r-y-rstudio.html#instalando-r-y-rstudio"><i class="fa fa-check"></i><b>1.1.1</b> Instalando <code>R</code> y <code>RStudio</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="1.2-primeros-pinitos-en-r.html"><a href="1.2-primeros-pinitos-en-r.html"><i class="fa fa-check"></i><b>1.2</b> Primeros pinitos en <code>R</code></a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="1.2-primeros-pinitos-en-r.html"><a href="1.2-primeros-pinitos-en-r.html#exportar-datos"><i class="fa fa-check"></i><b>1.2.1</b> Exportar datos</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html"><i class="fa fa-check"></i><b>1.3</b> R un poco mas avanzado…</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#for-loops"><i class="fa fa-check"></i><b>1.3.1</b> <code>for</code> loops</a></li>
+<li class="chapter" data-level="1.3.2" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#vectorizando"><i class="fa fa-check"></i><b>1.3.2</b> Vectorizando</a></li>
+<li class="chapter" data-level="1.3.3" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#functiones-de-la-familia-apply"><i class="fa fa-check"></i><b>1.3.3</b> Functiones de la familia *<code>apply</code></a></li>
+<li class="chapter" data-level="1.3.4" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#data.table"><i class="fa fa-check"></i><b>1.3.4</b> <code>data.table</code></a></li>
+<li class="chapter" data-level="1.3.5" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#el-tidyverso"><i class="fa fa-check"></i><b>1.3.5</b> El <code>tidy</code>verso</a></li>
+<li class="chapter" data-level="1.3.6" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#personalizando-r"><i class="fa fa-check"></i><b>1.3.6</b> Personalizando R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-paginas-web-con-github-rstudio-y-r.html"><a href="2-paginas-web-con-github-rstudio-y-r.html"><i class="fa fa-check"></i><b>2</b> Paginas web con <code>GitHub</code>, <code>RStudio</code>, y <code>R</code></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2.1-jekyll.html"><a href="2.1-jekyll.html"><i class="fa fa-check"></i><b>2.1</b> Jekyll</a></li>
+<li class="chapter" data-level="2.2" data-path="2.2-hugo.html"><a href="2.2-hugo.html"><i class="fa fa-check"></i><b>2.2</b> Hugo</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-usando-github-rstudio-y-r.html"><a href="3-usando-github-rstudio-y-r.html"><i class="fa fa-check"></i><b>3</b> Usando <code>GitHub</code>, <code>RStudio</code>, y <code>R</code></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3.1-git.html"><a href="3.1-git.html"><i class="fa fa-check"></i><b>3.1</b> <code>Git</code></a></li>
+<li class="chapter" data-level="3.2" data-path="3.2-github.html"><a href="3.2-github.html"><i class="fa fa-check"></i><b>3.2</b> <code>GitHub</code></a></li>
+<li class="chapter" data-level="3.3" data-path="3.3-rstudio-e-integracion-con-github.html"><a href="3.3-rstudio-e-integracion-con-github.html"><i class="fa fa-check"></i><b>3.3</b> <code>RStudio</code> e integracion con <code>GitHub</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-regresiones-lineales.html"><a href="4-regresiones-lineales.html"><i class="fa fa-check"></i><b>4</b> Regresiones lineales</a></li>
+<li class="chapter" data-level="5" data-path="5-regresiones-mas-avanzadas.html"><a href="5-regresiones-mas-avanzadas.html"><i class="fa fa-check"></i><b>5</b> Regresiones mas avanzadas</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="5.1-regresiones-bayesianas.html"><a href="5.1-regresiones-bayesianas.html"><i class="fa fa-check"></i><b>5.1</b> Regresiones Bayesianas</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-ecologia-basica.html"><a href="6-ecologia-basica.html"><i class="fa fa-check"></i><b>6</b> Ecologia basica</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="6.1-indices-de-diversidad.html"><a href="6.1-indices-de-diversidad.html"><i class="fa fa-check"></i><b>6.1</b> Indices de diversidad</a></li>
+<li class="chapter" data-level="6.2" data-path="6.2-curvas-de-acumulacion.html"><a href="6.2-curvas-de-acumulacion.html"><i class="fa fa-check"></i><b>6.2</b> Curvas de acumulacion</a></li>
+<li class="chapter" data-level="6.3" data-path="6.3-rarefaccion.html"><a href="6.3-rarefaccion.html"><i class="fa fa-check"></i><b>6.3</b> Rarefaccion</a></li>
+<li class="chapter" data-level="6.4" data-path="6.4-usando-datos-del-gbif.html"><a href="6.4-usando-datos-del-gbif.html"><i class="fa fa-check"></i><b>6.4</b> Usando datos del gbif</a></li>
+<li class="chapter" data-level="6.5" data-path="6.5-modelos-de-distribucion.html"><a href="6.5-modelos-de-distribucion.html"><i class="fa fa-check"></i><b>6.5</b> Modelos de distribucion</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-filogenetica-basica-en-r.html"><a href="7-filogenetica-basica-en-r.html"><i class="fa fa-check"></i><b>7</b> Filogenetica basica en <code>R</code></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="7.1-descargar-secuencias-de-genbank.html"><a href="7.1-descargar-secuencias-de-genbank.html"><i class="fa fa-check"></i><b>7.1</b> Descargar secuencias de <code>GenBank</code></a></li>
+<li class="chapter" data-level="7.2" data-path="7.2-usar-secuencias-existentes.html"><a href="7.2-usar-secuencias-existentes.html"><i class="fa fa-check"></i><b>7.2</b> Usar secuencias existentes</a></li>
+<li class="chapter" data-level="7.3" data-path="7.3-alinear-secuencias.html"><a href="7.3-alinear-secuencias.html"><i class="fa fa-check"></i><b>7.3</b> Alinear secuencias</a></li>
+<li class="chapter" data-level="7.4" data-path="7.4-visualizar-alineamientos.html"><a href="7.4-visualizar-alineamientos.html"><i class="fa fa-check"></i><b>7.4</b> Visualizar alineamientos</a></li>
+<li class="chapter" data-level="7.5" data-path="7.5-correr-arboles-filogeneticos.html"><a href="7.5-correr-arboles-filogeneticos.html"><i class="fa fa-check"></i><b>7.5</b> Correr arboles filogeneticos</a></li>
+<li class="chapter" data-level="7.6" data-path="7.6-ips.html"><a href="7.6-ips.html"><i class="fa fa-check"></i><b>7.6</b> IPS</a></li>
+<li class="chapter" data-level="7.7" data-path="7.7-exportar-datos-desde-r.html"><a href="7.7-exportar-datos-desde-r.html"><i class="fa fa-check"></i><b>7.7</b> Exportar datos desde R</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-macroevolucion-basica-en-r.html"><a href="8-macroevolucion-basica-en-r.html"><i class="fa fa-check"></i><b>8</b> Macroevolucion basica en <code>R</code></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="8.1-regresiones-filogeneticas.html"><a href="8.1-regresiones-filogeneticas.html"><i class="fa fa-check"></i><b>8.1</b> Regresiones filogeneticas</a></li>
+<li class="chapter" data-level="8.2" data-path="8.2-estimaciones-de-señal-filogenetica.html"><a href="8.2-estimaciones-de-señal-filogenetica.html"><i class="fa fa-check"></i><b>8.2</b> Estimaciones de señal filogenetica</a></li>
+<li class="chapter" data-level="8.3" data-path="8.3-modelos-sse.html"><a href="8.3-modelos-sse.html"><i class="fa fa-check"></i><b>8.3</b> Modelos SSE</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-web-scraping-con-r.html"><a href="9-web-scraping-con-r.html"><i class="fa fa-check"></i><b>9</b> Web scraping con <code>R</code></a></li>
+<li class="chapter" data-level="10" data-path="10-machine-learning-con-r.html"><a href="10-machine-learning-con-r.html"><i class="fa fa-check"></i><b>10</b> Machine learning con <code>R</code></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="10.1-keras-en-r.html"><a href="10.1-keras-en-r.html"><i class="fa fa-check"></i><b>10.1</b> <code>Keras</code> en <code>R</code></a></li>
+<li class="chapter" data-level="10.2" data-path="10.2-tensorflow-en-r.html"><a href="10.2-tensorflow-en-r.html"><i class="fa fa-check"></i><b>10.2</b> <code>Tensorflow</code> en <code>R</code></a></li>
+<li class="chapter" data-level="10.3" data-path="10.3-spark-r.html"><a href="10.3-spark-r.html"><i class="fa fa-check"></i><b>10.3</b> <code>Spark</code> <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="11-data-mining-con-r.html"><a href="11-data-mining-con-r.html"><i class="fa fa-check"></i><b>11</b> Data Mining con <code>R</code></a></li>
+<li class="chapter" data-level="12" data-path="12-tests-estadisticos.html"><a href="12-tests-estadisticos.html"><i class="fa fa-check"></i><b>12</b> Tests estadisticos</a></li>
+<li class="chapter" data-level="13" data-path="13-estadistica-descriptiva-en-r.html"><a href="13-estadistica-descriptiva-en-r.html"><i class="fa fa-check"></i><b>13</b> Estadistica descriptiva en <code>R</code></a></li>
+<li class="chapter" data-level="14" data-path="14-libros-paquetes-apps-en-r.html"><a href="14-libros-paquetes-apps-en-r.html"><i class="fa fa-check"></i><b>14</b> Libros, paquetes, apps en <code>R</code></a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="14.1-libros-en-r.html"><a href="14.1-libros-en-r.html"><i class="fa fa-check"></i><b>14.1</b> Libros en <code>R</code></a></li>
+<li class="chapter" data-level="14.2" data-path="14.2-paquetes-en-r.html"><a href="14.2-paquetes-en-r.html"><i class="fa fa-check"></i><b>14.2</b> Paquetes en <code>R</code></a></li>
+<li class="chapter" data-level="14.3" data-path="14.3-shiny-apps-en-r.html"><a href="14.3-shiny-apps-en-r.html"><i class="fa fa-check"></i><b>14.3</b> <code>Shiny</code> apps en <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="15-introduccion-a-rmarkdown.html"><a href="15-introduccion-a-rmarkdown.html"><i class="fa fa-check"></i><b>15</b> Introduccion a <code>RMarkdown</code></a></li>
+<li class="chapter" data-level="16" data-path="16-autocalificar-tareas-en-r.html"><a href="16-autocalificar-tareas-en-r.html"><i class="fa fa-check"></i><b>16</b> Autocalificar tareas en <code>R</code></a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="16.1-sha.html"><a href="16.1-sha.html"><i class="fa fa-check"></i><b>16.1</b> SHA</a></li>
+<li class="chapter" data-level="16.2" data-path="16.2-objetos-invisibles-en-el-espacio-de-trabajo.html"><a href="16.2-objetos-invisibles-en-el-espacio-de-trabajo.html"><i class="fa fa-check"></i><b>16.2</b> Objetos invisibles en el espacio de trabajo</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="17-graficos-en-r.html"><a href="17-graficos-en-r.html"><i class="fa fa-check"></i><b>17</b> Graficos en <code>R</code></a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="17.1-graficando-con-r-base.html"><a href="17.1-graficando-con-r-base.html"><i class="fa fa-check"></i><b>17.1</b> Graficando con <code>R</code> <code>base</code></a></li>
+<li class="chapter" data-level="17.2" data-path="17.2-graficando-con-ggplot2-en-r.html"><a href="17.2-graficando-con-ggplot2-en-r.html"><i class="fa fa-check"></i><b>17.2</b> Graficando con <code>ggplot2</code> en <code>R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="18-macroevolucion-basica-en-r-1.html"><a href="18-macroevolucion-basica-en-r-1.html"><i class="fa fa-check"></i><b>18</b> Macroevolucion basica en <code>R</code></a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="18.1-regresiones-filogeneticas-1.html"><a href="18.1-regresiones-filogeneticas-1.html"><i class="fa fa-check"></i><b>18.1</b> Regresiones filogeneticas</a></li>
+<li class="chapter" data-level="18.2" data-path="18.2-estimaciones-de-señal-filogenetica-1.html"><a href="18.2-estimaciones-de-señal-filogenetica-1.html"><i class="fa fa-check"></i><b>18.2</b> Estimaciones de señal filogenetica</a></li>
+<li class="chapter" data-level="18.3" data-path="18.3-modelos-sse-1.html"><a href="18.3-modelos-sse-1.html"><i class="fa fa-check"></i><b>18.3</b> Modelos SSE</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="19-manipulando-datos-en-r.html"><a href="19-manipulando-datos-en-r.html"><i class="fa fa-check"></i><b>19</b> Manipulando datos en <code>R</code></a></li>
+<li class="chapter" data-level="20" data-path="20-bases-de-datos-en-r.html"><a href="20-bases-de-datos-en-r.html"><i class="fa fa-check"></i><b>20</b> Bases de datos en <code>R</code></a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="20.1-sql.html"><a href="20.1-sql.html"><i class="fa fa-check"></i><b>20.1</b> <code>SQL</code></a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="21-organizando-proyectos-reproducibles.html"><a href="21-organizando-proyectos-reproducibles.html"><i class="fa fa-check"></i><b>21</b> Organizando proyectos reproducibles</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="21.1-rstudio-projects.html"><a href="21.1-rstudio-projects.html"><i class="fa fa-check"></i><b>21.1</b> <code>RStudio</code> projects</a></li>
+<li class="chapter" data-level="21.2" data-path="21.2-github-repo.html"><a href="21.2-github-repo.html"><i class="fa fa-check"></i><b>21.2</b> <code>GitHub</code> repo</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="22-mejores-practicas-r.html"><a href="22-mejores-practicas-r.html"><i class="fa fa-check"></i><b>22</b> Mejores Practicas R</a></li>
+<li class="chapter" data-level="23" data-path="23-como-pedir-ayuda-de-forma-eficiente.html"><a href="23-como-pedir-ayuda-de-forma-eficiente.html"><i class="fa fa-check"></i><b>23</b> Como pedir ayuda de forma eficiente?</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="23.1-ejemplos-reproducibles.html"><a href="23.1-ejemplos-reproducibles.html"><i class="fa fa-check"></i><b>23.1</b> Ejemplos reproducibles</a></li>
+<li class="chapter" data-level="23.2" data-path="23.2-fuentes-potenciales.html"><a href="23.2-fuentes-potenciales.html"><i class="fa fa-check"></i><b>23.2</b> Fuentes potenciales</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="24-como-hacer-mapas-en-r.html"><a href="24-como-hacer-mapas-en-r.html"><i class="fa fa-check"></i><b>24</b> Como hacer mapas en <code>R</code></a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="24.1-base-r.html"><a href="24.1-base-r.html"><i class="fa fa-check"></i><b>24.1</b> <code>Base</code> <code>R</code></a></li>
+<li class="chapter" data-level="24.2" data-path="24.2-ggplot.html"><a href="24.2-ggplot.html"><i class="fa fa-check"></i><b>24.2</b> <code>ggplot</code></a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="25-simulando-datos.html"><a href="25-simulando-datos.html"><i class="fa fa-check"></i><b>25</b> Simulando datos</a></li>
+<li class="chapter" data-level="26" data-path="26-reportes-reproducibles.html"><a href="26-reportes-reproducibles.html"><i class="fa fa-check"></i><b>26</b> Reportes reproducibles</a></li>
+<li class="divider"></li>
+<li><a href="https://cromanpa94.github.io/libRillo/" target="blank">Publicado usando bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">LibRillo de R y Biologia</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="macroevolucion-basica-en-r-1" class="section level1 hasAnchor" number="18">
+<h1><span class="header-section-number">Capitulo 18</span> Macroevolucion basica en <code>R</code><a href="18-macroevolucion-basica-en-r-1.html#macroevolucion-basica-en-r-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="17.2-graficando-con-ggplot2-en-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="18.1-regresiones-filogeneticas-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "sepia",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/cromanpa94/libRillo/edit/master/18-BiogeograficaBasica.Rmd",
+"text": "Editar"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/cromanpa94/libRillo/blob/master/18-BiogeograficaBasica.Rmd",
+"text": null
+},
+"download": ["libRillo_R_Biologia.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": true
+});
+});
+</script>
+
+</body>
+
+</html>

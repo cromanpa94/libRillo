@@ -1,8 +1,41 @@
 bookdown::gitbook:
+  dev: svglite
   css: style.css
+  split_by: section+number
   config:
     toc:
+      collapse: section
+      scroll_highlight: true
       before: |
         <li><a href="./">LibRillo Biologico</a></li>
       after: |
         <li><a href="https://cromanpa94.github.io/libRillo/" target="blank">Publicado usando bookdown</a></li>
+    toolbar:
+      position: fixed
+    edit : null
+    download: null
+
+    search:
+      engine: fuse
+      options: null
+    fontsettings:
+      theme: sepia
+      family: sans
+      size: 2
+    sharing:
+      facebook: true
+      github: true
+      twitter: true
+      linkedin: false
+      weibo: false
+      instapaper: false
+      vk: false
+      whatsapp: false
+    info: true
+bookdown::pdf_book:
+    keep_tex: true
+    toc_depth: 3
+    toc_unnumbered: no
+    toc_appendix: yes
+    pandoc_args: --top-level-division=chapter
+    citation_package: natbib

@@ -1,8 +1,12 @@
-book_filename: "bookdownproj"
+book_filename: "libRillo_R_Biologia"
 output_dir: docs
 delete_merged_file: true
 edit: https://github.com/cromanpa94/libRillo/edit/master/%s
 view: https://github.com/cromanpa94/libRillo/blob/master/%s
 language:
+  label:
+    fig: "FIGURA "
+    tab: "TABLA "
   ui:
     chapter_name: "Capitulo "
+    edit: "Editar"

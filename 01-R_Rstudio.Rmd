@@ -1,3 +1,4 @@
+
 # Una breve introduccion a `R`
 
 `R` será el principal lenguaje que guiara el libro. En diferentes disciplinas biologicas, el uso de `R` se ha extendido significativamente durante la ultima decada. Sin embargo, `R`, por ser un lenguaje principalmente enfocado en aspectos estadisticos, tiene ciertas limitaciones en cuanto a velocidad y flexibilidad. Por otro lado, debido a la compartimentalizacion de implementaciones metodologicas en codigo, aprender y usar `R` es probablemente central en un campo biologico determinado pero no en otros. Otros recursos pueden ser usados para seguir la estructura del presente libro en otros lenguajes (e.g. `python`). Por ahora, nos enfocaremos en como instalar y usar `R`. Por simplicidad, vamos a procurar trabajar desde `RStudio`.

@@ -5,38 +5,59 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# Prólogo
+# Prólogo {-}
 
-Este libro es una compilacion de consulta rapida sobre diferentes aspectos que combinan el uso de `R` con algunos temas de biologia. El `LibRillo de R y Biologia` pretende servir de referencia sobre temas especificos, enfocando capitulos sobre objetivos particulares y desarrollando brevemente el contenido principalmente alrededor de un parquete en `R`. Este librillo cubre temas que engloban desde lo mas fundamental en `R` asi como aplicaciones que combinan `R`, `git`, `GitHub`, entre otros.
-
-
-
-## Porque leer este libro?
+Este libro es una compilacion para consulta rapida sobre diferentes aspectos que combinan el uso de `R` con diferentes temas de biologia. El `LibRillo de R y Biologia` pretende servir de referencia sobre temas particulares, enfocando capitulos sobre objetivos especificos y desarrollando brevemente el contenido principalmente alrededor de un parquete en `R`. Este librillo cubre temas que engloban desde lo mas fundamental en `R` asi como aplicaciones que combinan `R`, `git`, `GitHub`, entre otros.
 
 
+## Estructura del libro {-}
 
-## Estructura del libro
+Este `LibRillo de R y Biologia` pretende avanzar a quien lo consulte en temas especificos que relacionan diferentes ambitos y aspectos biologicos con `R`. Sin embargo, el libro no se enfoca solamente en revisar la aplicacion de conceptus usando tecnicas. En el capitulo 1 XXX...
 
-Este `LibRillo de R y Biologia` pretende avanzar a quien lo consulte en temas especificos que relacionan diferentes ambitos y aspectos biologicos con `R`. Sin embargo, el libro no se enfoca solamente en revisar la aplicacion de conceptus usando tecnicas. 
+## Convenciones generales del libro {-}
 
-## Convenciones generales del libro
 
-This book is primarily about the R package bookdown, so you need to at least install R and the bookdown package. However, your book does not have to be related to the R language at all. It can use other computing languages (C++, SQL, Python, and so on; see Appendix B), and it can even be totally irrelevant to computing (e.g., you can write a novel, or a collection of poems). The software tools required to build a book are introduced in Appendix A.
+Este libro fue generado usando principalmente `R` `knitr` y `bookdown`. En general, los bloques de codigo que se incluyen en el libro permiten una ejecucion sencilla e intuitiva de los temas. En diferentes secciones del libro, se pretende generar salidad graficas y numericas directamente usando codigos en `R`. Al inicio de cada capitulo incluyo informacion sobre los paquetes que son relevantes para llevar a cabo los diferentes objetivos del mismo.
 
-The R session information when compiling this book is shown below:
+La informacion contenida en este libro fue compilada usando la siguiente sesion de `R`:
 
-```
+
+
+```{r}
 sessionInfo()
 ```
 
-We do not add prompts (> and +) to R source code in this book, and we comment out the text output with two hashes ## by default, as you can see from the R session information above. This is for your convenience when you want to copy and run the code (the text output will be ignored since it is commented out). Package names are in bold text (e.g., rmarkdown), and inline code and filenames are formatted in a typewriter font (e.g., knitr::knit('foo.Rmd')). Function names are followed by parentheses (e.g., bookdown::render_book()). The double-colon operator :: means accessing an object from a package.
+Pretendo no agregar simbolos como `>` y `+` en el codigo de `R` dentro de este libro. En general, los codigos aparecen destacados en cajas grises:
+
+```{r}
+a <- c(2, 4, 5)
+```
+
+Las salidas de codigo tambien aparecen en un bloque gris. Sin embargo, las lineas de salida incluyen los caracteres `##` antes del contenido de cada linea. Por ejemplo, multipliquemos el vector `a` creado anteriormente por `20`:
+
+```{r echo=FALSE}
+20 * a
+```
+
+La salida de esta operacion necesariamente tiene los `##` en el bloque. Por lo tanto, unicamente el codigo que **no** tiene `##` debe ser copiado (en caso de ser necesario). Las salidas de codigo realmente no son ran relevantes para reproducir el codigo.
+
+Por ultimo, el nombre de paquetes se indica en negrilla dentro del texto (e.g. **bookdown**), las functiones se presentan seguidas de parentesis (e.g. `render_book()`), los dobles dos puntos (`::`) significan que un determinado objeto pertenece a un paquete determinado (e.g. `bookdown::render_book()`), y codigos en el texto aparecen en formato de maquina de escribir (e.g. `R`). 
+
+Estas son las convenciones mas generales del libro. Otras convenciones mas particulares y relevantes a otros temas seran discutidas en los capitulos siguientes.
 
 
-## Agradecimientos
+## Dedicacion {-}
+
+Este libro esta escrito principalmente para estudiantes de universidades publicas o pertenecientes a grupos historicamente excluidos de la academia. Escribo el libro con mucho cariño, pensando en que ayudara a equilibrar la balanza entre quienes tienen acceso directo a recursos "avanzados" en ingles y aquellos que por diferentes razones, solamente acceden a informacion en español. El libro es de acceso abierto y no pretendo cobrar por su uso.
+
+## Agradecimientos {-}
+
+Mis agradecimientos mas fuertes van para mi padre y madre, Cesar Roman y Yocasta Palacios. Al parecer, de mi padre, Ictiologo y profesor titular en la Universidad del Quindio, termine heredando la profesion. De mi madre, profesora de preescolar en diferentes instituciones del Quindio (Colombia), la pasion y paciencia por enseñar y ayudar. Grandes agradecimientos van tambien a mi hermano, Carlos, ingeniero en sistemas, gran programador y conversador, quien por su cercania me mostro que escribir codigo (al menos al nivel basico que yo hago), no es imposible. Este libro lo empiezo a escribir estado en Tucson, AZ. Gracias a mi pareja, Heidi E. Steiner, quien me apoya con su actitud, tiempo, y cariño, mientras me dedico por raticos a escribir apartados de este libro. A estos cuatro personajes, motor de mi vida, todo mi cariño y admiracion.
 
 
+# Sobre el autor {-}
 
+Cristian Román Palacios es Profesor Asistente en la Universidad de Arizona desde el 2021. Cristian es Biologo de la Universidad del Valle (2015), Magister y Ph.D. en Ecologia y Evolucion (2019, 2020) de la Universidad de Arizona, con cargos postdoctorales en Temple University (2021) y University of California, Los Angeles (2021). Los interestes investigativos de Cristian contemplan temas de evolucion a grandes escalas taxonomicas, asi como la relacion entre cambio climatico y diversidad. Sin embargo, el aprendizaje de areas relacionadas con programacion resulto ser una prioridad durante su formacion academica. Ahora pretende divulgar de forma sencilla, contenidos de `R` y biologia usando diferentes recursos, uno de estos son los libros. Actualmente, Cristian enseña cursos de Machine Learning y Data Mining en la Escuela de La Informacion, en la Universidad de Arizona. Mas informacion sobre el autor esta disponible en su [pagina web](https://cromanpa94.github.io/cromanpa/).
 
-## Sobre el autor
 
 
