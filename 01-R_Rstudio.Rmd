@@ -1,0 +1,92 @@
+# Una breve introduccion a `R`
+
+`R` será el principal lenguaje que guiara el libro. En diferentes disciplinas biologicas, el uso de `R` se ha extendido significativamente durante la ultima decada. Sin embargo, `R`, por ser un lenguaje principalmente enfocado en aspectos estadisticos, tiene ciertas limitaciones en cuanto a velocidad y flexibilidad. Por otro lado, debido a la compartimentalizacion de implementaciones metodologicas en codigo, aprender y usar `R` es probablemente central en un campo biologico determinado pero no en otros. Otros recursos pueden ser usados para seguir la estructura del presente libro en otros lenguajes (e.g. `python`). Por ahora, nos enfocaremos en como instalar y usar `R`. Por simplicidad, vamos a procurar trabajar desde `RStudio`.
+
+## `R` y `RStudio`
+
+Aunque no son equivalentes, en diferentes contextos, `R` y `RStudio` se usan erroneamente de forma intercambiable. `R` es explicitamente un lenguaje de programacion, desarrollado por decadas como parte del `R Core Team` y la `R Foundation for Statistical Computing`. En pocas palabras, `R` es un lenguaje en si mismo, que esta enfocado en computaciones estadisticas. `RStudio` requiere de `R` para functionar. Especificamente, `RStudio` permite manejar (potentialmente) mas eficientemente y esteticamente el espacio de trabajo en `R`.
+
+### Instalando `R` y `RStudio`
+
+Dependiendo del sistema operativo en consideracion, existen multiples maneras de instalar `R`. En MacOS, vamos a usar `homebrew` para instalar paquetes y demas software que necesitemos. Para instalar `homebrew`, pueden correr la siguiente linea en la linea de comandos:
+
+```{bash, eval = FALSE}
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+```
+
+Si estan usando linux, intentaremos hacer las instalaciones usando `apt install` para instalar programas desde la linea de comandos. En Windows, los ejecutables estan generalente disponibles para los programas que estaremos usando.
+
+#### Instalando `R`
+
+En linux, la instalacion de `R` normalente requiere de un par de comandos:
+
+```{bash, eval = FALSE}
+sudo apt update
+sudo apt install r-base
+```
+
+En MacOs y desde `homebrew`, la instalacion de `R` involucra la siguiente linea:
+
+```{bash, eval = FALSE}
+brew install r
+```
+
+En Linux y MacOs, la instalacion debe crear una nueva aplicacion. Sin embargo, desde la misma linea de comandos, correr
+
+```{bash, eval = FALSE}
+R
+```
+
+debe permitir ingresar a `R` directamente. Por ultimo, es potentialmente preferible descagar e instalar `R` usando el instalador en la pagina oficial de `R` project usando este [link](https://cran.r-project.org/bin/windows/base/).
+
+#### Instalando `RStudio`
+
+Instalar `RStudio` no es totalmente necesario para seguir las instrucciones en todos los capitulos de este librillo. Sin embargo, es ultil para muchas de ellas. Por otro lado, `RStudio` no es completamente necesario para correr `R`. Para descargarlo e instalarlo pueden seguir las instrucciones en la [pagina oficial](https://www.rstudio.com/products/rstudio/) de `RStudio`.
+
+`RStudio` tambien puede ser instalado desde la linea de comando. En [Ubuntu Linux](https://docs.rstudio.com/rpm/installation/), instalar `RStudio` toma las siguientes lineas:
+
+```{bash, eval = FALSE}
+sudo apt update
+sudo apt install gdebi-core
+wget https://cdn.rstudio.com/package-manager/ubuntu/amd64/rstudio-pm_2022.04.0-7_amd64.deb
+sudo gdebi rstudio-pm_2022.04.0-7_amd64.deb
+```
+
+En MacOS, `homebrew` puede usarse para instalar `RStudio` muy facilmente:
+
+```{bash, eval = FALSE}
+brew install --cask rstudio
+```
+
+En Windows, la recomendacion es descargar la aplicacion directamente desde la pagina de `RStudio` en el siguiente [enlace](https://www.rstudio.com/products/rstudio/).
+
+
+
+## Primeros pinitos en `R`
+
+Ahora que tenemos `R` instalado vamos a empezar a conocer algunos aspectos basicos del lenguaje! 
+
+
+### Exportar datos
+
+
+## R un poco mas avanzado...
+
+
+### `for` loops
+
+### Vectorizando
+
+### Functiones de la familia *`apply`
+
+### `data.table`
+
+### El `tidy`verso
+
+### Personalizando R
+
+Mensaje de inicio
+
+
+
+

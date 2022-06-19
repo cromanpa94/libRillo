@@ -10,3 +10,33 @@ site: bookdown::bookdown_site
 Este libro es una compilacion de consulta rapida sobre diferentes aspectos que combinan el uso de `R` con algunos temas de biologia. El `LibRillo de R y Biologia` pretende servir de referencia sobre temas especificos, enfocando capitulos sobre objetivos particulares y desarrollando brevemente el contenido principalmente alrededor de un parquete en `R`. Este librillo cubre temas que engloban desde lo mas fundamental en `R` asi como aplicaciones que combinan `R`, `git`, `GitHub`, entre otros.
 
 
+
+## Porque leer este libro?
+
+
+
+## Estructura del libro
+
+Este `LibRillo de R y Biologia` pretende avanzar a quien lo consulte en temas especificos que relacionan diferentes ambitos y aspectos biologicos con `R`. Sin embargo, el libro no se enfoca solamente en revisar la aplicacion de conceptus usando tecnicas. 
+
+## Convenciones generales del libro
+
+This book is primarily about the R package bookdown, so you need to at least install R and the bookdown package. However, your book does not have to be related to the R language at all. It can use other computing languages (C++, SQL, Python, and so on; see Appendix B), and it can even be totally irrelevant to computing (e.g., you can write a novel, or a collection of poems). The software tools required to build a book are introduced in Appendix A.
+
+The R session information when compiling this book is shown below:
+
+```
+sessionInfo()
+```
+
+We do not add prompts (> and +) to R source code in this book, and we comment out the text output with two hashes ## by default, as you can see from the R session information above. This is for your convenience when you want to copy and run the code (the text output will be ignored since it is commented out). Package names are in bold text (e.g., rmarkdown), and inline code and filenames are formatted in a typewriter font (e.g., knitr::knit('foo.Rmd')). Function names are followed by parentheses (e.g., bookdown::render_book()). The double-colon operator :: means accessing an object from a package.
+
+
+## Agradecimientos
+
+
+
+
+## Sobre el autor
+
+

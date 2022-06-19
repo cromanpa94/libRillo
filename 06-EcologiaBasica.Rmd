@@ -1,0 +1,12 @@
+# Ecologia basica
+
+
+## Indices de diversidad
+
+## Curvas de acumulacion
+
+## Rarefaccion
+
+## Usando datos del gbif
+
+## Modelos de distribucion

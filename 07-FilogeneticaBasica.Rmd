@@ -1,0 +1,15 @@
+# Filogenetica basica en `R`
+
+## Descargar secuencias de `GenBank`
+
+## Usar secuencias existentes
+
+## Alinear secuencias
+
+## Visualizar alineamientos
+
+## Correr arboles filogeneticos
+
+## IPS
+
+## Exportar datos desde R

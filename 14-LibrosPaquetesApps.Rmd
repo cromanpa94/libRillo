@@ -1,0 +1,8 @@
+# Libros, paquetes, apps en `R`
+
+
+## Libros en `R`
+
+## Paquetes en `R`
+
+## `Shiny` apps en `R`
