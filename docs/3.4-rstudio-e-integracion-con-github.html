@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>23.1 Ejemplos reproducibles | LibRillo de R y Biologia</title>
-  <meta name="description" content="23.1 Ejemplos reproducibles | LibRillo de R y Biologia" />
+  <title>3.4 RStudio e integracion con GitHub | LibRillo de R y Biologia</title>
+  <meta name="description" content="3.4 RStudio e integracion con GitHub | LibRillo de R y Biologia" />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="23.1 Ejemplos reproducibles | LibRillo de R y Biologia" />
+  <meta property="og:title" content="3.4 RStudio e integracion con GitHub | LibRillo de R y Biologia" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="23.1 Ejemplos reproducibles | LibRillo de R y Biologia" />
+  <meta name="twitter:title" content="3.4 RStudio e integracion con GitHub | LibRillo de R y Biologia" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="23-como-pedir-ayuda-de-forma-eficiente.html"/>
-<link rel="next" href="23.2-fuentes-potenciales.html"/>
+<link rel="prev" href="3.3-github-vs-git.html"/>
+<link rel="next" href="4-regresiones-lineales.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -282,16 +282,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ejemplos-reproducibles" class="section level2 hasAnchor" number="23.1">
-<h2><span class="header-section-number">23.1</span> Ejemplos reproducibles<a href="23.1-ejemplos-reproducibles.html#ejemplos-reproducibles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="rstudio-e-integracion-con-github" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> <code>RStudio</code> e integracion con <code>GitHub</code><a href="3.4-rstudio-e-integracion-con-github.html#rstudio-e-integracion-con-github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para integrar RStudio con GitHub necesitamos seguir algunos pasos.</p>
+<ol style="list-style-type: decimal">
+<li>Crear una cuenta en <a href="https://github.com/join" class="uri">https://github.com/join</a></li>
+<li>Instalar git (<a href="https://git-scm.com/download" class="uri">https://git-scm.com/download</a>)</li>
+<li>Configurar <code>Git</code> con <code>RStudio</code> desde <code>R</code> usando el siguiente script.</li>
+</ol>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="3.4-rstudio-e-integracion-con-github.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Primero enlazamos nuestro github usando el correo y nombre de usuario</span></span>
+<span id="cb38-2"><a href="3.4-rstudio-e-integracion-con-github.html#cb38-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">&quot;TuNombre&quot;</span>, <span class="at">user.email =</span> <span class="st">&quot;tu@email.com&quot;</span>)</span>
+<span id="cb38-3"><a href="3.4-rstudio-e-integracion-con-github.html#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="3.4-rstudio-e-integracion-con-github.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Creamos un token para autenticarnos</span></span>
+<span id="cb38-5"><a href="3.4-rstudio-e-integracion-con-github.html#cb38-5" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>() </span>
+<span id="cb38-6"><a href="3.4-rstudio-e-integracion-con-github.html#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="3.4-rstudio-e-integracion-con-github.html#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Ponemos aqui el token que ya creamos:</span></span>
+<span id="cb38-8"><a href="3.4-rstudio-e-integracion-con-github.html#cb38-8" aria-hidden="true" tabindex="-1"></a>credentials<span class="sc">::</span><span class="fu">set_github_pat</span>(<span class="st">&quot;Token&quot;</span>)</span>
+<span id="cb38-9"><a href="3.4-rstudio-e-integracion-con-github.html#cb38-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-10"><a href="3.4-rstudio-e-integracion-con-github.html#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Re-iniciamos R</span></span></code></pre></div>
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="23-como-pedir-ayuda-de-forma-eficiente.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="23.2-fuentes-potenciales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="3.3-github-vs-git.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4-regresiones-lineales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -322,7 +340,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/cromanpa94/libRillo/edit/master/22-PedirAyudaOptima.Rmd",
+"link": "https://github.com/cromanpa94/libRillo/edit/master/03-ControlCambios.Rmd",
 "text": "Editar"
 },
 "history": {
@@ -330,7 +348,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/cromanpa94/libRillo/blob/master/22-PedirAyudaOptima.Rmd",
+"link": "https://github.com/cromanpa94/libRillo/blob/master/03-ControlCambios.Rmd",
 "text": null
 },
 "download": ["libRillo_R_Biologia.pdf"],

@@ -173,7 +173,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.1" data-path="3.1-git.html"><a href="3.1-git.html"><i class="fa fa-check"></i><b>3.1</b> <code>Git</code></a></li>
 <li class="chapter" data-level="3.2" data-path="3.2-github.html"><a href="3.2-github.html"><i class="fa fa-check"></i><b>3.2</b> <code>GitHub</code></a></li>
-<li class="chapter" data-level="3.3" data-path="3.3-rstudio-e-integracion-con-github.html"><a href="3.3-rstudio-e-integracion-con-github.html"><i class="fa fa-check"></i><b>3.3</b> <code>RStudio</code> e integracion con <code>GitHub</code></a></li>
+<li class="chapter" data-level="3.3" data-path="3.3-github-vs-git.html"><a href="3.3-github-vs-git.html"><i class="fa fa-check"></i><b>3.3</b> <code>GitHub</code> vs <code>git</code></a></li>
+<li class="chapter" data-level="3.4" data-path="3.4-rstudio-e-integracion-con-github.html"><a href="3.4-rstudio-e-integracion-con-github.html"><i class="fa fa-check"></i><b>3.4</b> <code>RStudio</code> e integracion con <code>GitHub</code></a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-regresiones-lineales.html"><a href="4-regresiones-lineales.html"><i class="fa fa-check"></i><b>4</b> Regresiones lineales</a></li>
 <li class="chapter" data-level="5" data-path="5-regresiones-mas-avanzadas.html"><a href="5-regresiones-mas-avanzadas.html"><i class="fa fa-check"></i><b>5</b> Regresiones mas avanzadas</a>
@@ -307,26 +308,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [10] data.table_1.14.2
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_1.2.0    xfun_0.36           bslib_0.3.1        
-##  [4] haven_2.5.0         gargle_1.2.0        colorspace_2.0-3   
-##  [7] vctrs_0.5.2         generics_0.1.2      htmltools_0.5.2    
-## [10] yaml_2.3.5          utf8_1.2.2          rlang_1.0.6        
-## [13] jquerylib_0.1.4     pillar_1.7.0        withr_2.5.0        
-## [16] glue_1.6.2          DBI_1.1.2           dbplyr_2.1.1       
-## [19] readxl_1.4.0        modelr_0.1.8        lifecycle_1.0.3    
-## [22] munsell_0.5.0       gtable_0.3.0        cellranger_1.1.0   
-## [25] rvest_1.0.2         evaluate_0.15       knitr_1.39         
-## [28] tzdb_0.3.0          fastmap_1.1.0       fansi_1.0.3        
-## [31] broom_1.0.1         backports_1.4.1     scales_1.2.0       
-## [34] googlesheets4_1.0.0 jsonlite_1.8.0      fs_1.5.2           
-## [37] hms_1.1.1           digest_0.6.29       stringi_1.7.6      
-## [40] bookdown_0.27       grid_4.2.0          cli_3.6.0          
-## [43] tools_4.2.0         magrittr_2.0.3      sass_0.4.1         
-## [46] crayon_1.5.1        pkgconfig_2.0.3     ellipsis_0.3.2     
-## [49] xml2_1.3.3          reprex_2.0.1        lubridate_1.8.0    
-## [52] googledrive_2.0.0   assertthat_0.2.1    rmarkdown_2.14     
-## [55] httr_1.4.3          rstudioapi_0.13     R6_2.5.1           
-## [58] compiler_4.2.0</code></pre>
+##  [1] lubridate_1.8.0     assertthat_0.2.1    digest_0.6.29      
+##  [4] utf8_1.2.2          R6_2.5.1            cellranger_1.1.0   
+##  [7] sys_3.4             backports_1.4.1     reprex_2.0.1       
+## [10] evaluate_0.15       httr_1.4.3          pillar_1.7.0       
+## [13] rlang_1.0.6         googlesheets4_1.0.0 readxl_1.4.0       
+## [16] rstudioapi_0.13     jquerylib_0.1.4     rmarkdown_2.14     
+## [19] googledrive_2.0.0   munsell_0.5.0       broom_1.0.1        
+## [22] compiler_4.2.0      modelr_0.1.8        xfun_0.36          
+## [25] pkgconfig_2.0.3     askpass_1.1         htmltools_0.5.2    
+## [28] openssl_2.0.2       tidyselect_1.2.0    bookdown_0.27      
+## [31] fansi_1.0.3         crayon_1.5.1        tzdb_0.3.0         
+## [34] dbplyr_2.1.1        withr_2.5.0         grid_4.2.0         
+## [37] jsonlite_1.8.0      gtable_0.3.0        lifecycle_1.0.3    
+## [40] DBI_1.1.2           magrittr_2.0.3      credentials_1.3.2  
+## [43] scales_1.2.0        cli_3.6.0           stringi_1.7.6      
+## [46] fs_1.5.2            xml2_1.3.3          bslib_0.3.1        
+## [49] ellipsis_0.3.2      generics_0.1.2      vctrs_0.5.2        
+## [52] tools_4.2.0         glue_1.6.2          hms_1.1.1          
+## [55] fastmap_1.1.0       yaml_2.3.5          colorspace_2.0-3   
+## [58] gargle_1.2.0        rvest_1.0.2         knitr_1.39         
+## [61] haven_2.5.0         sass_0.4.1          usethis_2.1.6</code></pre>
 <p>Pretendo no agregar simbolos como <code>&gt;</code> y <code>+</code> en el codigo de <code>R</code> dentro de este libro. En general, los codigos aparecen destacados en cajas grises:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="convenciones-generales-del-libro.html#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code></pre></div>
 <p>Las salidas de codigo tambien aparecen en un bloque gris. Sin embargo, las lineas de salida incluyen los caracteres <code>##</code> antes del contenido de cada linea. Por ejemplo, multipliquemos el vector <code>a</code> creado anteriormente por <code>20</code>:</p>

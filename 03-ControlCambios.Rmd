@@ -2,6 +2,43 @@
 
 ## `Git`
 
+Git es un sistema de control de versiones distribuido diseñado para la gestión eficiente y confiable del código fuente. Es una herramienta de desarrollo de software de código abierto y, por lo tanto, se puede utilizar de forma gratuita. Está diseñado para permitir a los desarrolladores compartir, colaborar y controlar los cambios en un proyecto a lo largo del tiempo. 
+
+Git es una herramienta importante para los científicos de la biología, ya que les permite llevar un registro de los cambios realizados a lo largo del tiempo. Esto permite a los científicos compartir sus trabajos entre sí, así como colaborar entre ellos en un proyecto. Además, Git hace que sea más sencillo realizar experimentos, ya que los científicos pueden volver fácilmente a versiones anteriores de su código en caso de que haya un error. 
+
+Git también es una herramienta útil para la investigación científica en biología, ya que puede ayudar a los investigadores a llevar un registro de sus experimentos e incluso a compartir sus trabajos con otros. Esto facilita la colaboración entre investigadores y permite a los investigadores compartir sus resultados con otros.
+
+Por lo tanto, Git es una herramienta muy útil para la investigación científica en biología, ya que facilita la colaboración entre los científicos, permite llevar un registro de los cambios realizados en un proyecto y facilita el compartir los trabajos entre los investigadores.
+
 ## `GitHub`
 
+GitHub es una plataforma de código abierto que permite a los usuarios compartir, colaborar y almacenar sus proyectos. GitHub ofrece muchas herramientas y características que hacen que el trabajo en equipo sea más eficiente, como herramientas de colaboración, control de versiones, integración con otros servicios, seguridad y privacidad. Estas características hacen que GitHub sea un lugar ideal para almacenar y gestionar proyectos de cualquier tamaño.
+
+## `GitHub` vs `git`
+
+Git es un sistema de control de versiones diseñado para llevar un registro de los cambios realizados en archivos y directorios. Por otro lado, GitHub es una plataforma de código abierto que permite a los usuarios compartir, colaborar y almacenar sus proyectos. Mientras que Git se utiliza para controlar las versiones de los archivos y directorios, GitHub se utiliza para compartir y colaborar los proyectos entre los usuarios.
+
+
 ## `RStudio` e integracion con `GitHub`
+
+Para integrar RStudio con GitHub necesitamos seguir algunos pasos.
+
+1. Crear una cuenta en https://github.com/join
+2. Instalar git (https://git-scm.com/download)
+3. Configurar `Git` con `RStudio` desde `R` usando el siguiente script.
+
+```{r eval = FALSE}
+## Primero enlazamos nuestro github usando el correo y nombre de usuario
+usethis::use_git_config(user.name = "TuNombre", user.email = "tu@email.com")
+
+## Creamos un token para autenticarnos
+usethis::create_github_token() 
+
+## Ponemos aqui el token que ya creamos:
+credentials::set_github_pat("Token")
+
+## Re-iniciamos R
+```
+
+
+
