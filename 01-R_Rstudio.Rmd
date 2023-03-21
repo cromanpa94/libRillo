@@ -67,26 +67,150 @@ En Windows, la recomendacion es descargar la aplicacion directamente desde la pa
 
 Ahora que tenemos `R` instalado vamos a empezar a conocer algunos aspectos basicos del lenguaje! 
 
+`R` es un lenguaje simbolo-orientado, lo que significa que el usuario no necesita conocer los detalles de la computacion para entender el codigo. Por ejemplo, si queremos crear un vector con los numeros del `1` al `10`, lo podemos hacer de la siguiente manera:
+
+```{r}
+mi_vector <- 1:10
+```
+
+No hay que olvidar que `R` es un lenguaje interactivo. Esto significa que el usuario puede interactuar con el codigo y ver los resultados inmediatamente. Por ejemplo, para ver el contenido del vector previamente definido, corremos la siguiente linea:
+
+```{r}
+mi_vector
+```
+
+El resultado debe ser `r mi_vector`.
+
+Ademas de los vectores, `R` tambien puede usarse para definir matrices. Por ejemplo, si queremos crear una matriz con los numeros del `1` al `9`, usamos la siguiente linea:
+
+```{r}
+mi_matriz <- matrix(1:9, nrow = 3, ncol = 3)
+```
+
+Para ver los contenidos de la matriz, corremos la siguiente linea:
+
+```{r}
+mi_matriz
+```
+
+Vamos ahora a revisar como exportar datos en `R`!
 
 ### Exportar datos
 
+`R` es capaz de exportar datos a diferentes formatos. Por ahora, vamos a enfocarnos en el formato tabular `csv`. Este formato es especialmente útil cuando los datos se quieren compartir con otras personas. Para exportar datos a `csv`, se puede usar la función `write.csv()`. Por ejemplo, para exportar los datos del vector `mi_vector`, se puede correr la siguiente línea:
+
+```{r}
+write.csv(mi_vector, file = 'mi_vector.csv')
+```
+
+Esto creará un archivo `csv` llamado `mi_vector.csv` en el directorio especificado. Para exportar la matriz `mi_matriz`, se puede correr la siguiente línea:
+
+```{r}
+write.csv(mi_matriz, file = 'mi_matriz.csv')
+```
+
+Esto creará un archivo `csv` llamado `mi_matriz.csv` en el directorio especificado.
 
 ## R un poco mas avanzado...
 
+Ya vimos brevemente como crear datos en R, un par de estructuras y como exportarlos. Vamos a hablar ahora un poco sobre como hacer cambios en la estructura de los datos (i.e. procesamiento).
 
 ### `for` loops
 
+Un `for` loop es una estructura de control en `R` que permite repetir una acción una cierta cantidad de veces. Por ejemplo, para imprimir los números del `1` al `10`, se puede usar el siguiente `for loop`:
+
+```{r}
+for (i in 1:10) {
+    print(i)
+}
+```
+
+Este `for` loop recorrerá el vector `1:10` e imprimirá cada elemento del vector. La variable `i` es una variable temporal que se usa para almacenar los valores del vector. Esto quiere decir que cada vez que el `for loop` se ejecuta, `i` tomará el valor del elemento actual del vector.
+
+Los `for` loops también se pueden usar para realizar operaciones matemáticas. Por ejemplo, para realizar la suma de los números del `1` al `10`, se puede usar el siguiente `for loop`:
+
+```{r}
+suma <- 0
+for (i in 1:10) {
+    suma <- suma + i
+}
+print(suma)
+```
+
+En este `for` loop, la variable `suma` se usa para almacenar el resultado de la suma. Cada vez que el `for loop` se ejecuta, el valor de `suma` se actualiza con el resultado de la suma de la variable `i`. Al final de la ejecución, el valor de `suma` será `r suma``.
+
 ### Vectorizando
 
-### Functiones de la familia *`apply`
+`R` es un lenguaje de computación vectorizado, lo que significa que los bucles `for` no son necesarios para realizar operaciones matemáticas. Esto permite que se realicen operaciones más rápido y con menos código. Por ejemplo, para realizar la suma de los números del `1` al `10`, no se necesita usar un `for` loop. En su lugar, se puede usar la función `sum()` de la siguiente manera:
+
+```{r}
+suma <- sum(1:10)
+print(suma)
+```
+
+Esto imprimirá el mismo resultado que el `for` loop anterior (`r suma`).
+
+Vectorizar los cálculos también es útil para realizar operaciones con matrices. Por ejemplo, para calcular el promedio de los elementos de la matriz `mi_matriz`, se puede usar la función `mean()` de la siguiente manera:
+
+```{r}
+promedio <- mean(mi_matriz)
+print(promedio)
+```
+
+Esto imprimirá el promedio de los elementos de la matriz (`r promedio``).
+
+### Funciones de la familia *`apply`
+
+Las funciones de la familia `apply` son un conjunto de funciones de `R` que permiten aplicar una función a una matriz de forma vectorizada. Esto significa que se pueden realizar operaciones matemáticas sin usar bucles `for`. Por ejemplo, para calcular la suma de los elementos de la matriz `mi_matriz`, se puede usar la función `apply()` de la siguiente manera:
+
+```{r}
+suma <- apply(mi_matriz, 1, sum)
+print(suma)
+```
+
+Esto imprimirá la suma de los elementos de cada fila (por eso el segundo elemento es `1`) de la matriz (`6`, `15`, `24`).
+
+Otras funciones de la familia `apply` son `lapply()`, `sapply()` y `mapply()`. Estas funciones se usan para aplicar una función a una lista, vector o matriz, respectivamente. Por ejemplo, para calcular el promedio de los elementos de la matriz `mi_matriz`, se puede usar la función `apply()` de la siguiente manera:
+
+```{r}
+promedio <- apply(mi_matriz, 2, mean)
+print(promedio)
+```
+
+Esto imprimirá el promedio de los elementos de cada columna de la matriz (`r promedio`).
+
 
 ### `data.table`
 
+`data.table` es un paquete de `R` que permite manipular grandes cantidades de datos de una manera más eficiente que otros paquetes. Por ejemplo, para cargar un conjunto de datos en `R`, se puede usar la función `read.csv()`. Sin embargo, esta función puede ser muy lenta cuando se trabaja con grandes conjuntos de datos. En su lugar, se puede usar la función `fread()` de `data.table` para cargar los datos de una manera más rápida. Por ejemplo, para cargar el conjunto de datos `mi_datos.csv`, se puede usar la siguiente línea:
+
+```{r}
+mi_matriz <- fread("mi_matriz.csv")
+```
+
+Además de la carga de datos, `data.table` también permite realizar operaciones de manipulación y agregación de datos de una manera más eficiente que otras funciones. Por ejemplo, para calcular el promedio de los datos en la tabla `mi_datos`, se puede usar la función `data.table()` de la siguiente manera:
+
+```{r}
+promedio <- data.table(mi_matriz)[, mean(mi_matriz$valor)]
+print(promedio)
+```
+
+Esto imprimirá el promedio de los datos en la tabla.
+
 ### El `tidy`verso
 
-### Personalizando R
+`Tidyverse` es un conjunto de paquetes y herramientas de `R` que permiten realizar análisis de datos de manera más eficiente y fácil. Estos paquetes incluyen `dplyr`, `tidyr`, `ggplot2`, `readr` y `purrr`. Estos paquetes se usan para realizar operaciones de manipulación, agregación, visualización y análisis de datos.
 
-Mensaje de inicio
+### `dplyr`
+
+`Dplyr` es un paquete de `R` que permite manipular grandes conjuntos de datos de una manera más eficiente. Esto se logra usando una sintaxis fácil de leer y entender. Por ejemplo, para filtrar los datos en la tabla `mi_datos`, se puede usar la función `filter()` de `dplyr` de la siguiente manera:
+
+```{r}
+mi_matriz %>%
+  summarise(across(everything(), mean))
+```
+
+`dplyr` también cuenta con otras funciones útiles como `arrange()` para ordenar los datos, `select()` para seleccionar las columnas deseadas y `mutate()` para crear nuevas columnas. Estas herramientas permiten realizar operaciones de manipulación de datos de manera mucho más eficiente.
 
 
 
