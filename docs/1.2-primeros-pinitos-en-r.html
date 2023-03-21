@@ -23,7 +23,7 @@
 <meta name="author" content="Cristian Román Palacios" />
 
 
-<meta name="date" content="2022-06-19" />
+<meta name="date" content="2023-03-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -158,10 +158,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#for-loops"><i class="fa fa-check"></i><b>1.3.1</b> <code>for</code> loops</a></li>
 <li class="chapter" data-level="1.3.2" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#vectorizando"><i class="fa fa-check"></i><b>1.3.2</b> Vectorizando</a></li>
-<li class="chapter" data-level="1.3.3" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#functiones-de-la-familia-apply"><i class="fa fa-check"></i><b>1.3.3</b> Functiones de la familia *<code>apply</code></a></li>
+<li class="chapter" data-level="1.3.3" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#funciones-de-la-familia-apply"><i class="fa fa-check"></i><b>1.3.3</b> Funciones de la familia *<code>apply</code></a></li>
 <li class="chapter" data-level="1.3.4" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#data.table"><i class="fa fa-check"></i><b>1.3.4</b> <code>data.table</code></a></li>
 <li class="chapter" data-level="1.3.5" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#el-tidyverso"><i class="fa fa-check"></i><b>1.3.5</b> El <code>tidy</code>verso</a></li>
-<li class="chapter" data-level="1.3.6" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#personalizando-r"><i class="fa fa-check"></i><b>1.3.6</b> Personalizando R</a></li>
+<li class="chapter" data-level="1.3.6" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#dplyr"><i class="fa fa-check"></i><b>1.3.6</b> <code>dplyr</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="2-paginas-web-con-github-rstudio-y-r.html"><a href="2-paginas-web-con-github-rstudio-y-r.html"><i class="fa fa-check"></i><b>2</b> Paginas web con <code>GitHub</code>, <code>RStudio</code>, y <code>R</code></a>
@@ -284,8 +284,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="primeros-pinitos-en-r" class="section level2 hasAnchor" number="1.2">
 <h2><span class="header-section-number">1.2</span> Primeros pinitos en <code>R</code><a href="1.2-primeros-pinitos-en-r.html#primeros-pinitos-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Ahora que tenemos <code>R</code> instalado vamos a empezar a conocer algunos aspectos basicos del lenguaje!</p>
+<p><code>R</code> es un lenguaje simbolo-orientado, lo que significa que el usuario no necesita conocer los detalles de la computacion para entender el codigo. Por ejemplo, si queremos crear un vector con los numeros del <code>1</code> al <code>10</code>, lo podemos hacer de la siguiente manera:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="1.2-primeros-pinitos-en-r.html#cb11-1" aria-hidden="true" tabindex="-1"></a>mi_vector <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code></pre></div>
+<p>No hay que olvidar que <code>R</code> es un lenguaje interactivo. Esto significa que el usuario puede interactuar con el codigo y ver los resultados inmediatamente. Por ejemplo, para ver el contenido del vector previamente definido, corremos la siguiente linea:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="1.2-primeros-pinitos-en-r.html#cb12-1" aria-hidden="true" tabindex="-1"></a>mi_vector</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>El resultado debe ser 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.</p>
+<p>Ademas de los vectores, <code>R</code> tambien puede usarse para definir matrices. Por ejemplo, si queremos crear una matriz con los numeros del <code>1</code> al <code>9</code>, usamos la siguiente linea:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="1.2-primeros-pinitos-en-r.html#cb14-1" aria-hidden="true" tabindex="-1"></a>mi_matriz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code></pre></div>
+<p>Para ver los contenidos de la matriz, corremos la siguiente linea:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="1.2-primeros-pinitos-en-r.html#cb15-1" aria-hidden="true" tabindex="-1"></a>mi_matriz</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<p>Vamos ahora a revisar como exportar datos en <code>R</code>!</p>
 <div id="exportar-datos" class="section level3 hasAnchor" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> Exportar datos<a href="1.2-primeros-pinitos-en-r.html#exportar-datos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>R</code> es capaz de exportar datos a diferentes formatos. Por ahora, vamos a enfocarnos en el formato tabular <code>csv</code>. Este formato es especialmente útil cuando los datos se quieren compartir con otras personas. Para exportar datos a <code>csv</code>, se puede usar la función <code>write.csv()</code>. Por ejemplo, para exportar los datos del vector <code>mi_vector</code>, se puede correr la siguiente línea:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="1.2-primeros-pinitos-en-r.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(mi_vector, <span class="at">file =</span> <span class="st">&#39;mi_vector.csv&#39;</span>)</span></code></pre></div>
+<p>Esto creará un archivo <code>csv</code> llamado <code>mi_vector.csv</code> en el directorio especificado. Para exportar la matriz <code>mi_matriz</code>, se puede correr la siguiente línea:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="1.2-primeros-pinitos-en-r.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(mi_matriz, <span class="at">file =</span> <span class="st">&#39;mi_matriz.csv&#39;</span>)</span></code></pre></div>
+<p>Esto creará un archivo <code>csv</code> llamado <code>mi_matriz.csv</code> en el directorio especificado.</p>
 </div>
 </div>
             </section>

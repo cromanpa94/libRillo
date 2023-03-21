@@ -23,7 +23,7 @@
 <meta name="author" content="Cristian Román Palacios" />
 
 
-<meta name="date" content="2022-06-19" />
+<meta name="date" content="2023-03-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -158,10 +158,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#for-loops"><i class="fa fa-check"></i><b>1.3.1</b> <code>for</code> loops</a></li>
 <li class="chapter" data-level="1.3.2" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#vectorizando"><i class="fa fa-check"></i><b>1.3.2</b> Vectorizando</a></li>
-<li class="chapter" data-level="1.3.3" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#functiones-de-la-familia-apply"><i class="fa fa-check"></i><b>1.3.3</b> Functiones de la familia *<code>apply</code></a></li>
+<li class="chapter" data-level="1.3.3" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#funciones-de-la-familia-apply"><i class="fa fa-check"></i><b>1.3.3</b> Funciones de la familia *<code>apply</code></a></li>
 <li class="chapter" data-level="1.3.4" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#data.table"><i class="fa fa-check"></i><b>1.3.4</b> <code>data.table</code></a></li>
 <li class="chapter" data-level="1.3.5" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#el-tidyverso"><i class="fa fa-check"></i><b>1.3.5</b> El <code>tidy</code>verso</a></li>
-<li class="chapter" data-level="1.3.6" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#personalizando-r"><i class="fa fa-check"></i><b>1.3.6</b> Personalizando R</a></li>
+<li class="chapter" data-level="1.3.6" data-path="1.3-r-un-poco-mas-avanzado.html"><a href="1.3-r-un-poco-mas-avanzado.html#dplyr"><i class="fa fa-check"></i><b>1.3.6</b> <code>dplyr</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="2-paginas-web-con-github-rstudio-y-r.html"><a href="2-paginas-web-con-github-rstudio-y-r.html"><i class="fa fa-check"></i><b>2</b> Paginas web con <code>GitHub</code>, <code>RStudio</code>, y <code>R</code></a>
@@ -288,27 +288,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="convenciones-generales-del-libro.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.2.0 (2022-04-22)
 ## Platform: x86_64-apple-darwin17.0 (64-bit)
-## Running under: macOS Catalina 10.15.7
+## Running under: macOS 13.2.1
 ## 
 ## Matrix products: default
-## BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
 ## LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib
 ## 
 ## locale:
 ## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 ## 
 ## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## [1] stats     graphics  grDevices utils     datasets  methods  
+## [7] base     
 ## 
 ## other attached packages:
-## [1] bookdown_0.27
+##  [1] forcats_0.5.1     stringr_1.4.0     dplyr_1.1.0      
+##  [4] purrr_0.3.4       readr_2.1.2       tidyr_1.2.0      
+##  [7] tibble_3.1.7      ggplot2_3.4.1     tidyverse_1.3.2  
+## [10] data.table_1.14.2
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] digest_0.6.29   R6_2.5.1        jsonlite_1.8.0  magrittr_2.0.3  evaluate_0.15  
-##  [6] stringi_1.7.6   rlang_1.0.2     cli_3.3.0       rstudioapi_0.13 jquerylib_0.1.4
-## [11] bslib_0.3.1     rmarkdown_2.14  tools_4.2.0     stringr_1.4.0   xfun_0.31      
-## [16] yaml_2.3.5      fastmap_1.1.0   compiler_4.2.0  htmltools_0.5.2 knitr_1.39     
-## [21] sass_0.4.1</code></pre>
+##  [1] tidyselect_1.2.0    xfun_0.36           bslib_0.3.1        
+##  [4] haven_2.5.0         gargle_1.2.0        colorspace_2.0-3   
+##  [7] vctrs_0.5.2         generics_0.1.2      htmltools_0.5.2    
+## [10] yaml_2.3.5          utf8_1.2.2          rlang_1.0.6        
+## [13] jquerylib_0.1.4     pillar_1.7.0        withr_2.5.0        
+## [16] glue_1.6.2          DBI_1.1.2           dbplyr_2.1.1       
+## [19] readxl_1.4.0        modelr_0.1.8        lifecycle_1.0.3    
+## [22] munsell_0.5.0       gtable_0.3.0        cellranger_1.1.0   
+## [25] rvest_1.0.2         evaluate_0.15       knitr_1.39         
+## [28] tzdb_0.3.0          fastmap_1.1.0       fansi_1.0.3        
+## [31] broom_1.0.1         backports_1.4.1     scales_1.2.0       
+## [34] googlesheets4_1.0.0 jsonlite_1.8.0      fs_1.5.2           
+## [37] hms_1.1.1           digest_0.6.29       stringi_1.7.6      
+## [40] bookdown_0.27       grid_4.2.0          cli_3.6.0          
+## [43] tools_4.2.0         magrittr_2.0.3      sass_0.4.1         
+## [46] crayon_1.5.1        pkgconfig_2.0.3     ellipsis_0.3.2     
+## [49] xml2_1.3.3          reprex_2.0.1        lubridate_1.8.0    
+## [52] googledrive_2.0.0   assertthat_0.2.1    rmarkdown_2.14     
+## [55] httr_1.4.3          rstudioapi_0.13     R6_2.5.1           
+## [58] compiler_4.2.0</code></pre>
 <p>Pretendo no agregar simbolos como <code>&gt;</code> y <code>+</code> en el codigo de <code>R</code> dentro de este libro. En general, los codigos aparecen destacados en cajas grises:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="convenciones-generales-del-libro.html#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code></pre></div>
 <p>Las salidas de codigo tambien aparecen en un bloque gris. Sin embargo, las lineas de salida incluyen los caracteres <code>##</code> antes del contenido de cada linea. Por ejemplo, multipliquemos el vector <code>a</code> creado anteriormente por <code>20</code>:</p>

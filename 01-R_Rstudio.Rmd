@@ -185,6 +185,7 @@ Esto imprimirá el promedio de los elementos de cada columna de la matriz (`r pr
 `data.table` es un paquete de `R` que permite manipular grandes cantidades de datos de una manera más eficiente que otros paquetes. Por ejemplo, para cargar un conjunto de datos en `R`, se puede usar la función `read.csv()`. Sin embargo, esta función puede ser muy lenta cuando se trabaja con grandes conjuntos de datos. En su lugar, se puede usar la función `fread()` de `data.table` para cargar los datos de una manera más rápida. Por ejemplo, para cargar el conjunto de datos `mi_datos.csv`, se puede usar la siguiente línea:
 
 ```{r}
+library(data.table)
 mi_matriz <- fread("mi_matriz.csv")
 ```
 
@@ -206,7 +207,8 @@ Esto imprimirá el promedio de los datos en la tabla.
 `Dplyr` es un paquete de `R` que permite manipular grandes conjuntos de datos de una manera más eficiente. Esto se logra usando una sintaxis fácil de leer y entender. Por ejemplo, para filtrar los datos en la tabla `mi_datos`, se puede usar la función `filter()` de `dplyr` de la siguiente manera:
 
 ```{r}
-mi_matriz %>%
+library(tidyverse)
+mi_matriz[,-1] %>%
   summarise(across(everything(), mean))
 ```
 

@@ -8,10 +8,10 @@ exportar-datos
 r-un-poco-mas-avanzado
 for-loops
 vectorizando
-functiones-de-la-familia-apply
+funciones-de-la-familia-apply
 data.table
 el-tidyverso
-personalizando-r
+dplyr
 paginas-web-con-github-rstudio-y-r
 jekyll
 hugo
