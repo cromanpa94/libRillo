@@ -15,7 +15,7 @@ Dependiendo del sistema operativo en consideracion, existen multiples maneras de
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
 ```
 
-Si estan usando linux, intentaremos hacer las instalaciones usando `apt install` para instalar programas desde la linea de comandos. En Windows, los ejecutables estan generalente disponibles para los programas que estaremos usando.
+Si estan usando linux, intentaremos hacer las instalaciones usando `apt install` para instalar programas desde la linea de comandos. En Windows, los ejecutables estan generalente disponibles para los programas que estaremos usando. Por ejemplo, para instalar `R` en Windows puedes revisar este [siguiente enlace](https://cran.r-project.org/bin/windows/base/) asociado a CRAN (The Comprehensive R Archive Network). Desde alli, es sugerible descargar la version mas reciente disponible de `R`.
 
 #### Instalando `R`
 
@@ -38,7 +38,7 @@ En Linux y MacOs, la instalacion debe crear una nueva aplicacion. Sin embargo, d
 R
 ```
 
-debe permitir ingresar a `R` directamente. Por ultimo, es potentialmente preferible descagar e instalar `R` usando el instalador en la pagina oficial de `R` project usando este [link](https://cran.r-project.org/bin/windows/base/).
+debe permitir ingresar a `R` directamente. Por ultimo, en Windows descagar e instalar `R` usando el instalador en la pagina oficial de `R` project usando este [link](https://cran.r-project.org/bin/windows/base/) es preferible.
 
 #### Instalando `RStudio`
 
@@ -65,7 +65,7 @@ En Windows, la recomendacion es descargar la aplicacion directamente desde la pa
 
 ## Primeros pinitos en `R`
 
-Ahora que tenemos `R` instalado vamos a empezar a conocer algunos aspectos basicos del lenguaje! 
+Ahora que tenemos `R` instalado vamos a empezar a conocer algunos aspectos basicos del lenguaje! Primero ingresa a R ya sea desde la linea de comandos en Linux o Mac usando escribiendo `R` o en Windows buscando la aplicacion directamente.
 
 `R` es un lenguaje simbolo-orientado, lo que significa que el usuario no necesita conocer los detalles de la computacion para entender el codigo. Por ejemplo, si queremos crear un vector con los numeros del `1` al `10`, lo podemos hacer de la siguiente manera:
 
